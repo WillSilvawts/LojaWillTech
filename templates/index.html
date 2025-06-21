@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja WillTech - Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Lista de Produtos - Loja WillTech</h1>
+    <a href="/add">Adicionar Produto</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço (R$)</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto[0] }}</td>
+            <td>{{ produto[1] }}</td>
+            <td>{{ produto[2] }}</td>
+            <td>
+                <a href="/edit/{{ produto[0] }}">Editar</a>
+                <a href="/delete/{{ produto[0] }}">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
